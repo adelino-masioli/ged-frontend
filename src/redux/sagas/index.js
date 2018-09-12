@@ -5,19 +5,21 @@ import axios from 'axios'
 
 function* login(action) {
     let token = localStorage.getItem('token')
-    let user_data  = localStorage.getItem('user')
+    let local_user = localStorage.getItem('user')
     const login = yield axios.post('http://localhost:3333/sessions', {
         email: action.email,
         password: action.password
     })
     if (login.data.message) {
-        yield put(ActionCreators.signinFailure(login.data.message))        
+        localStorage.clear()
+        yield put(ActionCreators.signinFailure(login.data.message))     
     } else {
         token = login.data.token.token
-        user_data = JSON.stringify(login.data.user)
         localStorage.setItem('token', token)
+        
+        let user_data = JSON.stringify(login.data.user)
         localStorage.setItem('user', user_data)
-        yield put(ActionCreators.signinSuccess(user_data))
+        yield put(ActionCreators.signinSuccess(login.data.user))
     }
 }
 function* auth(){
@@ -25,7 +27,7 @@ function* auth(){
     let user  = localStorage.getItem('user')
     if (token) {
         try {
-            //yield put(ActionCreators.authSuccess(user))
+            yield put(ActionCreators.authSuccess(user))
         } catch(err) {
             yield put(ActionCreators.authFailure('invalid token')) 
         }
@@ -36,6 +38,8 @@ function* auth(){
 
 export default function* rootSaga() {
     yield all([
-        takeLatest(Types.SIGNIN_REQUEST, login)
+        takeLatest(Types.SIGNIN_REQUEST, login),
+        takeLatest(Types.AUTH_REQUEST, auth),
+        put(ActionCreators.authRequest())
     ])
 }

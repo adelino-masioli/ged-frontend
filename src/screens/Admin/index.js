@@ -6,14 +6,19 @@ const Home = props => <h1>Home Admin</h1>
 const Users = props => <h1>Users Admin</h1>
 
 const Admin = props => {
+
     if (!props.auth.isAuth) {
-        return <Redirect to='/login'/>
+        return <Redirect to='/login' />
+    } else {
+        if (JSON.parse(localStorage.getItem('user')).role !== 'admin') {
+            return <Redirect to='/dashboard' />
+        }
     }
+
     return (
         <div>
-            <h1>Admin</h1>
+            <h1>Admin {props.auth.user.role}</h1>
             <p>
-                {JSON.stringify(props.auth)}
                 <Link to='/admin'>Home Admin</Link>
                 <Link to='/admin/users'>Users Admin</Link>
             </p>

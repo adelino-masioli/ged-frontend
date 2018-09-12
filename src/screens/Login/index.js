@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux' 
+import { Redirect } from 'react-router-dom'
 import ActionCreator from '../../redux/actionCreators';
 
 class Login extends Component{
@@ -21,10 +22,18 @@ class Login extends Component{
         this.props.login(email, password)
     }
 
-    render() {
+    render(){
+        if (this.props.auth.isAuth) {
+            if (this.props.auth.user.role === 'admin') {
+                return <Redirect to='/admin' />
+            }
+            if (this.props.auth.user.role === 'user') {
+                return <Redirect to='/dashboard' />
+            }
+        }
         return (
             <div>
-                <h1>Login</h1>
+                <h1>Login </h1>
                 <input type="text" value={this.state.form.email} onChange={this.handleChange('email')}/>
                 <input type="password" value={this.state.form.password} onChange={this.handleChange('password')} />
                 <button onClick={this.login}>Logar</button>
