@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function* login(action) {
     let token = localStorage.getItem('token')
-    let local_user = localStorage.getItem('user')
+    //let local_user = localStorage.getItem('user')
     const login = yield axios.post('http://localhost:3333/sessions', {
         email: action.email,
         password: action.password

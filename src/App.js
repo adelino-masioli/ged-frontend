@@ -22,10 +22,6 @@ class App extends Component {
             <Route exact path='/admin' component={Admin} />
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/login' component={Login} />
-            <Header/>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
           </div>
         </Router>
       </Provider>

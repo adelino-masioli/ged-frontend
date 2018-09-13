@@ -33,14 +33,38 @@ class Login extends Component{
         }
         return (
             <div>
-                <h1>Login </h1>
-                <input type="text" value={this.state.form.email} onChange={this.handleChange('email')}/>
-                <input type="password" value={this.state.form.password} onChange={this.handleChange('password')} />
-                <button onClick={this.login}>Logar</button>
-                {
-                    this.props.auth.error &&
-                    <p>Erro ao logar.</p>
-                }
+                <div className="login-box">
+                    <div className="login-logo"><b>Admin</b>LTE</div>
+                    <div className="login-box-body">
+                        <p className="login-box-msg">Sign in to start your session</p>
+                        <div className="form-group has-feedback">
+                            <input type="email" className="form-control" placeholder="Email" value={this.state.form.email} onChange={this.handleChange('email')}/>
+                            <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div className="form-group has-feedback">
+                            <input type="password" className="form-control" placeholder="Password" value={this.state.form.password} onChange={this.handleChange('password')} />
+                            <span className="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-xs-8">
+                                <div className="checkbox icheck">
+                                    <label> <input type="checkbox" /> Remember Me</label>
+                                </div>
+                            </div>
+                            <div className="col-xs-4">
+                                <button type="submit" className="btn btn-primary btn-block btn-flat">Sign In</button>
+                            </div>
+                        </div>
+
+                        
+                        <button onClick={this.login}>Logar</button>
+                        {
+                            this.props.auth.error &&
+                            <p>Erro ao logar.</p>
+                                }
+                    </div>
+                </div>
             </div>
         )
     }

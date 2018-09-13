@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const Dashboard = props => {
