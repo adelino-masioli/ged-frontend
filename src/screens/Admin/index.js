@@ -9,8 +9,8 @@ const Admin = props => {
 
     if (!props.auth.isAuth) {
         return <Redirect to='/login' />
-    } else {
-        if (JSON.parse(localStorage.getItem('user')).role !== 'admin') {
+    }else {
+        if (JSON.parse(props.auth.user).role !== 'admin') {
             return <Redirect to='/dashboard' />
         }
     }

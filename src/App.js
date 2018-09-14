@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-
 import store from './redux'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
-import './App.css'
 import './component/Common/dependencies'
-import Header from './component/Template/header'
+
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Admin from './screens/Admin'

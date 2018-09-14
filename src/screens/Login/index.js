@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import ActionCreator from '../../redux/actionCreators';
 
+
 class Login extends Component{
     state = {
         form: {
@@ -22,21 +23,17 @@ class Login extends Component{
         this.props.login(email, password)
     }
 
-    render(){
+    render() {
         if (this.props.auth.isAuth) {
-            if (this.props.auth.user.role === 'admin') {
-                return <Redirect to='/admin' />
-            }
-            if (this.props.auth.user.role === 'user') {
-                return <Redirect to='/dashboard' />
-            }
+            return <Redirect to='/admin' />
         }
+ 
         return (
             <div>
                 <div className="login-box">
-                    <div className="login-logo"><b>Admin</b>LTE</div>
+                    <div className="login-logo"><b>Gestor</b>GED</div>
                     <div className="login-box-body">
-                        <p className="login-box-msg">Sign in to start your session</p>
+                        <p className="login-box-msg">Informe o e-mail e senha</p>
                         <div className="form-group has-feedback">
                             <input type="email" className="form-control" placeholder="Email" value={this.state.form.email} onChange={this.handleChange('email')}/>
                             <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -47,22 +44,14 @@ class Login extends Component{
                         </div>
 
                         <div className="row">
-                            <div className="col-xs-8">
-                                <div className="checkbox icheck">
-                                    <label> <input type="checkbox" /> Remember Me</label>
-                                </div>
-                            </div>
-                            <div className="col-xs-4">
-                                <button type="submit" className="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <div className="col-xs-12 col-md-12">
+                                <button type="submit" className="btn btn-linkedin btn-block btn-flat" onClick={this.login}>ENTRAR</button>
                             </div>
                         </div>
-
-                        
-                        <button onClick={this.login}>Logar</button>
                         {
                             this.props.auth.error &&
                             <p>Erro ao logar.</p>
-                                }
+                        }
                     </div>
                 </div>
             </div>

@@ -3,13 +3,12 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const Dashboard = props => {
-
     if (!props.auth.isAuth) {
         return <Redirect to='/login' />
     }
     return (
         <div>
-            <h1>Admin {props.auth.user.role}</h1>
+            <h1>Dashboard</h1>
         </div>
     )
 }
