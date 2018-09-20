@@ -3,7 +3,7 @@ import store from './redux'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 
-import './component/Common/dependencies'
+import './component/commons/dependencies'
 
 import Home from './screens/Home'
 import Login from './screens/Login'

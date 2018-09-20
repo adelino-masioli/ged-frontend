@@ -1,12 +1,12 @@
 import { takeLatest, all, put } from 'redux-saga/effects'
 import { Types } from '../actionCreators'
 import ActionCreators from '../actionCreators'
-import axios from 'axios'
 import jwtDecode from 'jwt-decode'
+import  API from './../../main/BaseURL'
 
 function* login(action) {
     let token = localStorage.getItem('token')
-    const login = yield axios.post('http://localhost:3333/sessions', {
+    const login = yield API.post('sessions', {
         email: action.email,
         password: action.password
     })
