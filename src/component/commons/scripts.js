@@ -17,4 +17,5 @@ $(window).on('load', function() {
     $('.preloader-wrapper').fadeOut();
     $('body').removeClass('preloader-site');
     $('.wrapper').fadeIn();
+    $('.login-box').fadeIn();
 });

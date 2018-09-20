@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Breadcrumb from '../../component/templates/Breadcrumb';
 import BreadcrumbItem from '../../component/templates/BreadcrumbItem';
 import PageHeaderTitle from '../../component/templates/PageHeaderTitle';
@@ -48,4 +49,9 @@ class Home extends Component {
         )
     }
 }
-export default Home
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+}
+export default connect(mapStateToProps)(Home)
