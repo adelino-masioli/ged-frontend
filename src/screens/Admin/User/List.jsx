@@ -16,6 +16,7 @@ import ButtonGroupLink from '../../../component/buttons/ButtonGroupLink'
 import ButtonGroupButton from '../../../component/buttons/ButtonGroupButton'
 import Toast from '../../../component/notifications/Toast'
 import Datatable from '../../../component/datatable/Datatable'
+import Format from '../../../component/format/Format'
 
 class Create extends Component {
     componentDidMount(){
@@ -37,8 +38,8 @@ class Create extends Component {
             ]
         })
     }
-
     render() {	
+        const dataList  = [{'id':'admin', 'value':'Administrador'}, {'id':'moderator', 'value':'Moderador'}, {'id':'user', 'value':'Usuário'}];	
         const headerTitle = [{'class':'text-center', 'value':'#'}, {'class':'text-center', 'value':'NOME'}, {'class':'text-center', 'value':'EMAIL'}, {'class':'text-center', 'value':'PERFIL'} , {'class':'text-center', 'value':'AÇÃO'}]
         return(
             <div className="content-wrapper"><Toast/>
@@ -75,7 +76,7 @@ class Create extends Component {
                                     <td className='text-center'>{res.id}</td>
                                     <td>{res.name}</td>
                                     <td>{res.email}</td>
-                                    <td>{res.role}</td>
+                                    <td><Format dataValue={res.role} dataList={dataList}/></td>
                                     <td className='text-center'>
                                     <ButtonGroup>
                                       <ButtonGroupLink link={`/users/${res.id}/edit`} label='Editar' btnclass='btn-xs bg-aqua' icon='fa fa-pencil'/>

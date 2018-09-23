@@ -29,7 +29,6 @@ class Edit extends Component {
             role: ''
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSave = this.handleSave.bind(this)
     }
     componentDidMount(){
         this.props.reset()
@@ -41,28 +40,44 @@ class Edit extends Component {
             const user = {}
             const u = nextProps.user.user
             if (u.name !== prevState.name) {
-                user.name = nextProps.user.user.name
+                if (prevState.name) {
+                    user.name = prevState.name
+                } else {
+                    user.name = nextProps.user.user.name
+                }
             }
             if (u.email !== prevState.email) {
-                user.email = nextProps.user.user.email
+                if (prevState.email) {
+                    user.email = prevState.email
+                } else {
+                    user.email = nextProps.user.user.email
+                }
             }
             if (u.username !== prevState.username) {
-                user.username = nextProps.user.user.username
+                if (prevState.username) {
+                    user.username = prevState.username
+                } else {
+                    user.username = nextProps.user.user.username
+                }
             }
             if (u.role !== prevState.role) {
-                user.role = nextProps.user.user.role
+                if (prevState.role) {
+                    user.role = prevState.role
+                } else {
+                    user.role = nextProps.user.user.role
+                }
             }
             return user
         }
         return null
     }
+
     handleChange = fieldname => event => {
         this.setState({
             [fieldname]: event.target.value
          })
     }
     handleSave = () => {
-        console.log(this.state)
         this.props.save({
             id: this.props.match.params.id,
             name: this.state.name,
