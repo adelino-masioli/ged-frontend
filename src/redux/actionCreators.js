@@ -13,7 +13,30 @@ export const {
         authFailure: null,
 
         destroyAuthRequest: null,
-        destroyAuthSuccess: ['user']
+        destroyAuthSuccess: ['user'],
+
+        //user
+        createUserRequest: ['user'],
+        createUserSuccess: ['user'],
+        createUserFailure: ['error'],
+        createUserReset: null,
+
+        getUsersRequest: null,
+        getUsersSuccess: ['users'],
+        getUsersFailure: null,
+
+        getUserRequest: ['id'],
+        getUserSuccess: ['user'],
+        getUserFailure: null,
+
+        updateUserRequest: ['user'],
+        updateUserSuccess: ['user'],
+        updateUserFailure: ['error'],
+        updateUserReset: null,
+
+        removeUserRequest: ['id'],
+        removeUserSuccess: ['id'],
+        removeUserFailure: ['error']
 
     })
 export default Creators

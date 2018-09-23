@@ -1,0 +1,15 @@
+.margin-bottom-5{
+    margin-bottom:5px;
+}
+.react-confirm-alert-overlay{
+    z-index: 99999!important;
+    background: rgba(0, 0, 0, 0.40)!important;
+}
+.react-confirm-alert-body {
+    padding: 20px!important;
+    -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.13)!important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1)!important;
+}
+.react-confirm-alert-body h1{
+    font-size: 28px;
+}

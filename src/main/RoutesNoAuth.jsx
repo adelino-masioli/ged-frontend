@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Login from '../screens/Login'
@@ -19,6 +19,13 @@ class AuthOrApp extends Component {
                     <Route exact path='/' component={Login} />
                     <Route exact path='/login' component={Login} />
                 </aside>
+            )
+        }
+    }
+    componentDidMount() {
+        if (this.props.auth.isAuth) {
+            return (
+                <Redirect to='/home'/>
             )
         }
     }

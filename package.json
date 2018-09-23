@@ -11,10 +11,12 @@
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "react": "^16.5.0",
+    "react-confirm-alert": "^2.0.5",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-toastify": "^4.3.1",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
     "reduxsauce": "^1.0.0"
